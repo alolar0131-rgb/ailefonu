@@ -180,6 +180,26 @@
     }
     .footer-note strong { color: rgba(201,168,76,.5); }
 
+    /* Ziyaretçi Sayacı */
+    .visitor-counter {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      background: rgba(201,168,76,.08);
+      border: 1px solid rgba(201,168,76,.25);
+      border-radius: 12px; padding: 14px 24px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .vc-label {
+      font-size: .82rem; color: #9e9aad;
+      text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+    }
+    .vc-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: #c9a84c;
+      min-width: 60px; text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -191,9 +211,6 @@
 
 <!-- Main Card -->
 <div class="card">
-  <div class="logo">🏛️</div>
-  <div class="brand">AİLE FONU</div>
-  <p class="tagline">Birlikte Daha Güçlü Geleceğe</p>
   <div class="divider"></div>
 
   <p class="main-message">
@@ -219,13 +236,24 @@
     </div>
   </div>
 
+  <!-- Ziyaretçi Sayacı -->
+  <div class="visitor-counter">
+    <span class="vc-label">👁️ Toplam Ziyaretçi</span>
+    <span class="vc-number" id="vcNumber">—</span>
+    <img id="hitsImg"
+      src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Falolar0131-rgb.github.io%2Failefonu&count_bg=%23C9A84C&title_bg=%230D1B3E&icon=eye&icon_color=%23ffffff&title=Ziyaretci&edge_flat=true"
+      alt="ziyaretci sayaci"
+      style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;"
+      onload="parseHits(this)"/>
+  </div>
+
   <div class="footer-note">
-    <strong>🏛️ Aile Fonu</strong> &nbsp;·&nbsp; Haziran 2023'ten bugüne &nbsp;·&nbsp; Dayanışma ile güçlü yarınlara
+    Haziran 2023'ten bugüne &nbsp;·&nbsp; Dayanışma ile güçlü yarınlara
   </div>
 </div>
 
 <script>
-  // Generate floating particles
+  // Floating particles
   const container = document.getElementById('particles');
   for (let i = 0; i < 25; i++) {
     const p = document.createElement('div');
@@ -239,6 +267,38 @@
       opacity: ${Math.random() * 0.4 + 0.1};
     `;
     container.appendChild(p);
+  }
+
+  // Ziyaretçi sayacı - hits.seeyoufarm.com SVG badge'den sayı parse et
+  function parseHits(img) {
+    // SVG yüklendi, şimdi fetch ile sayıyı alalım
+    fetch(img.src)
+      .then(r => r.text())
+      .then(svg => {
+        const nums = [...svg.matchAll(/>(\d+)<\/text>/g)];
+        if (nums.length >= 2) {
+          const total = parseInt(nums[nums.length - 1][1]);
+          if (!isNaN(total)) animateCount(total);
+        }
+      })
+      .catch(() => {
+        // Fallback: localStorage
+        const n = (parseInt(localStorage.getItem('af_v') || '0')) + 1;
+        localStorage.setItem('af_v', n);
+        animateCount(n);
+      });
+  }
+
+  function animateCount(target) {
+    const el = document.getElementById('vcNumber');
+    const dur = 1600, start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.floor(ease * target).toLocaleString('tr-TR');
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
   }
 </script>
 </body>
