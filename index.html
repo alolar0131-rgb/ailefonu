@@ -16,6 +16,7 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">🏛️ AİLE FONU</a>
+    <div class="nav-visitor" id="navVisitor" title="Toplam ziyaret sayısı">👁️ <span id="navVisitorCount">...</span></div>
     <button class="nav-toggle" id="navToggle" aria-label="Menü">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -49,6 +50,12 @@
       <div class="stat-card">
         <span class="stat-num">11+</span>
         <span class="stat-label">Faaliyet</span>
+      </div>
+      <div class="stat-card stat-visitor" id="visitorStatCard">
+        <span class="stat-num" id="visitorCount">
+          <span class="visitor-dot"></span>
+        </span>
+        <span class="stat-label">Ziyaretçi</span>
       </div>
     </div>
     <a href="#hakkimizda" class="hero-btn">Daha Fazla Keşfet ↓</a>
@@ -356,6 +363,9 @@
     </div>
     <div class="footer-bottom">
       <p>Kuruluş: Haziran 2023 &nbsp;|&nbsp; Kuruluş Amacı: 6 Şubat 2023 Depremi Sonrası Aile Dayanışması</p>
+      <p class="footer-visitor-line">👁️ Bu sayfayı toplam <strong id="footerVisitorCount">—</strong> kez ziyaret edildi</p>
+      <!-- Gizli sayaç resmi - sayım için gerekli -->
+      <img id="hitsImg" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Falolar0131-rgb.github.io%2Failefonu&count_bg=%23C9A84C&title_bg=%230D1B3E&icon=eye&icon_color=%23ffffff&title=Ziyaretci&edge_flat=true" alt="" style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;"/>
     </div>
   </div>
 </footer>
@@ -388,6 +398,55 @@
     el.classList.add('reveal');
     observer.observe(el);
   });
+
+  // ===== ZİYARETÇİ SAYACI =====
+  // hits.seeyoufarm.com JSON API ile anlık sayı çekme
+  const HITS_URL = 'https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Falolar0131-rgb.github.io%2Failefonu&count_bg=%23C9A84C&title_bg=%230D1B3E&icon=eye&icon_color=%23ffffff&title=Ziyaretci&edge_flat=true';
+
+  function animateCount(el, target) {
+    const duration = 1800;
+    const start = performance.now();
+    const startVal = 0;
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(startVal + (target - startVal) * eased).toLocaleString('tr-TR');
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  function setVisitorCount(count) {
+    const heroEl = document.getElementById('visitorCount');
+    const navEl  = document.getElementById('navVisitorCount');
+    const footEl = document.getElementById('footerVisitorCount');
+    if (heroEl) animateCount(heroEl, count);
+    if (navEl)  navEl.textContent = count.toLocaleString('tr-TR');
+    if (footEl) footEl.textContent = count.toLocaleString('tr-TR');
+  }
+
+  // SVG'den sayıyı parse et
+  async function fetchHitsCount() {
+    try {
+      const res = await fetch(HITS_URL);
+      const svg = await res.text();
+      // SVG içindeki sayıyı bul (örn: "1.234" veya "1234")
+      const matches = svg.match(/>([\d\.\,]+)<\/text>/g);
+      if (matches && matches.length >= 2) {
+        // Son sayı genellikle toplam ziyaret
+        const raw = matches[matches.length - 1].replace(/<[^>]+>/g, '').replace(/[^0-9]/g, '');
+        const count = parseInt(raw, 10);
+        if (!isNaN(count) && count > 0) { setVisitorCount(count); return; }
+      }
+    } catch(e) {}
+    // Fallback: localStorage ile basit sayaç
+    const stored = parseInt(localStorage.getItem('af_visits') || '0') + 1;
+    localStorage.setItem('af_visits', stored);
+    setVisitorCount(stored);
+  }
+
+  fetchHitsCount();
 </script>
 </body>
 </html>

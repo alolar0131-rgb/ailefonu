@@ -474,6 +474,57 @@ body {
 }
 .footer-bottom p { color: rgba(255,255,255,.25); font-size: .8rem; }
 
+/* ===== ZİYARETÇİ SAYACI ===== */
+.nav-visitor {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(201,168,76,.12);
+  border: 1px solid rgba(201,168,76,.3);
+  color: var(--gold);
+  padding: 4px 12px; border-radius: 999px;
+  font-size: .8rem; font-weight: 600;
+  letter-spacing: .04em;
+  margin-right: 8px;
+  transition: background .2s;
+}
+.nav-visitor:hover { background: rgba(201,168,76,.2); }
+
+.stat-visitor {
+  border-color: rgba(201,168,76,.4) !important;
+  background: linear-gradient(135deg, rgba(201,168,76,.12), rgba(201,168,76,.04)) !important;
+  position: relative; overflow: hidden;
+}
+.stat-visitor::after {
+  content: 'CANLI';
+  position: absolute; top: 8px; right: 8px;
+  font-size: .55rem; font-weight: 700;
+  background: #22c55e; color: #fff;
+  padding: 2px 6px; border-radius: 999px;
+  letter-spacing: .06em;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+@keyframes pulse-live {
+  0%,100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+.visitor-dot {
+  display: inline-block;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold);
+  animation: dotBounce 1s ease-in-out infinite;
+}
+@keyframes dotBounce {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(.5); opacity: .4; }
+}
+
+.footer-visitor-line {
+  margin-top: 8px;
+  color: rgba(201,168,76,.6);
+  font-size: .82rem;
+}
+.footer-visitor-line strong { color: var(--gold); }
+
 /* ===== SCROLL REVEAL ===== */
 .reveal {
   opacity: 0; transform: translateY(30px);
