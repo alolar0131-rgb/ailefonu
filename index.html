@@ -3,450 +3,243 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aile Fonu – Birlikte Daha Güçlü Geleceğe</title>
-  <meta name="description" content="Aile Fonu; dayanışma, güven ve şeffaflık ilkeleri üzerine kurulmuş bir aile yardımlaşma yapısıdır. Haziran 2023'ten bugüne birlikte güçlüyüz."/>
+  <title>Aile Fonu – Çok Yakında</title>
+  <meta name="description" content="Aile Fonu internet sitesi çok yakında sizlerle!"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #06080f;
+      color: #e8e4d9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background */
+    .bg-glow {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(13,27,62,.95) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(100,30,30,.4) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(13,27,62,.6) 0%, transparent 60%);
+      background-color: #06080f;
+    }
+
+    /* Floating particles */
+    .particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(201,168,76,.15);
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: .5; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* Main card */
+    .card {
+      position: relative; z-index: 10;
+      text-align: center;
+      padding: 60px 48px 56px;
+      max-width: 680px; width: 90%;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(201,168,76,.2);
+      border-radius: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow:
+        0 0 80px rgba(201,168,76,.06),
+        0 40px 100px rgba(0,0,0,.7),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      animation: fadeIn .9s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Logo */
+    .logo {
+      font-size: 2.8rem;
+      margin-bottom: 6px;
+      animation: spin-slow 8s linear infinite;
+      display: inline-block;
+    }
+    @keyframes spin-slow {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 900;
+      background: linear-gradient(135deg, #fff 30%, #f0d080 70%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: .04em;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      color: #c9a84c;
+      font-size: .9rem; letter-spacing: .12em;
+      text-transform: uppercase; font-weight: 600;
+      margin-bottom: 36px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      margin: 0 auto 36px;
+    }
+
+    /* ⭐ KIRMIZI ANA MESAJ */
+    .main-message {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      font-weight: 700;
+      color: #ff3b3b;
+      text-shadow:
+        0 0 20px rgba(255,59,59,.5),
+        0 0 40px rgba(255,59,59,.25);
+      line-height: 1.4;
+      margin-bottom: 12px;
+      animation: redPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes redPulse {
+      0%,100% { text-shadow: 0 0 20px rgba(255,59,59,.5), 0 0 40px rgba(255,59,59,.2); }
+      50%      { text-shadow: 0 0 35px rgba(255,59,59,.9), 0 0 70px rgba(255,59,59,.4); }
+    }
+
+    /* Gear icons */
+    .gears {
+      font-size: 1.8rem;
+      display: inline-flex; gap: 8px; align-items: center;
+      margin-bottom: 28px;
+    }
+    .gear-spin  { display: inline-block; animation: spin 3s linear infinite; }
+    .gear-spin2 { display: inline-block; animation: spin 2s linear infinite reverse; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Description */
+    .description {
+      color: #8e8a9d;
+      font-size: .95rem; line-height: 1.8;
+      max-width: 480px; margin: 0 auto 40px;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      margin-bottom: 40px;
+    }
+    .progress-label {
+      display: flex; justify-content: space-between;
+      font-size: .78rem; color: #6e6a7d;
+      text-transform: uppercase; letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+    .progress-label span:last-child { color: #c9a84c; font-weight: 700; }
+    .progress-bar {
+      height: 6px; background: rgba(255,255,255,.06);
+      border-radius: 999px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #8a6a1a, #c9a84c, #f0d080);
+      border-radius: 999px;
+      width: 0%;
+      animation: fillBar 2s 0.5s ease forwards;
+    }
+    @keyframes fillBar {
+      to { width: 85%; }
+    }
+
+    /* Footer note */
+    .footer-note {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.2);
+      font-size: .78rem; letter-spacing: .04em;
+    }
+    .footer-note strong { color: rgba(201,168,76,.5); }
+
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo">🏛️ AİLE FONU</a>
-    <div class="nav-visitor" id="navVisitor" title="Toplam ziyaret sayısı">👁️ <span id="navVisitorCount">...</span></div>
-    <button class="nav-toggle" id="navToggle" aria-label="Menü">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#hakkimizda">Hakkımızda</a></li>
-      <li><a href="#misyon">Misyon & Vizyon</a></li>
-      <li><a href="#faaliyetler">Faaliyetler</a></li>
-      <li><a href="#yonetim">Yönetim</a></li>
-      <li><a href="#kurallar">Kurallar</a></li>
-      <li><a href="#tesekkur">Teşekkür</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="bg-glow"></div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-badge">Haziran 2023'ten Bugüne</span>
-    <h1 class="hero-title">AİLE FONU</h1>
-    <p class="hero-subtitle">Dayanışma ile Güçlü Yarınlara</p>
-    <p class="hero-desc">Birlikte büyüyen, birlikte güçlenen, birlikte ilerleyen bir aile olarak ortak geleceğimizi inşa ediyoruz.</p>
-    <div class="hero-stats">
-      <div class="stat-card">
-        <span class="stat-num">30+</span>
-        <span class="stat-label">Aktif Üye</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">3</span>
-        <span class="stat-label">Yıl</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-num">11+</span>
-        <span class="stat-label">Faaliyet</span>
-      </div>
-      <div class="stat-card stat-visitor" id="visitorStatCard">
-        <span class="stat-num" id="visitorCount">
-          <span class="visitor-dot"></span>
-        </span>
-        <span class="stat-label">Ziyaretçi</span>
-      </div>
-    </div>
-    <a href="#hakkimizda" class="hero-btn">Daha Fazla Keşfet ↓</a>
-  </div>
-  <div class="hero-img-side">
-    <img src="WhatsApp Image 2026-06-26 at 21.54.14.jpeg" alt="Aile Fonu Dayanışma"/>
-  </div>
-</section>
+<!-- Floating particles -->
+<div class="particles" id="particles"></div>
 
-<!-- HAKKIMIZDA -->
-<section id="hakkimizda" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Kuruluş Hikayemiz</span>
-      <h2>Neden Kurulduk?</h2>
-      <p>6 Şubat 2023 depremi, hayatın ne kadar öngörülemez olduğunu ve zor zamanlarda dayanışmanın ne kadar hayati önem taşıdığını bir kez daha gösterdi. Bu anlayışla Aile Fonu, sevdiklerimizin yanında olmak ve birlikte güçlenmek amacıyla kuruldu.</p>
-    </div>
-    <div class="about-grid">
-      <div class="about-card" data-delay="0">
-        <div class="about-icon">💛</div>
-        <h3>Birlik</h3>
-        <p>Aile bağlarımızı güçlendirir, geleceğe birlikte yürürüz.</p>
-      </div>
-      <div class="about-card" data-delay="100">
-        <div class="about-icon">🤝</div>
-        <h3>Dayanışma</h3>
-        <p>Birlikte hareket eder, birbirimize güç veririz.</p>
-      </div>
-      <div class="about-card" data-delay="200">
-        <div class="about-icon">🛡️</div>
-        <h3>Güvence</h3>
-        <p>Zor zamanlarda güvenli bir liman oluruz.</p>
-      </div>
-      <div class="about-card" data-delay="300">
-        <div class="about-icon">📊</div>
-        <h3>Şeffaflık</h3>
-        <p>Tüm gelir ve giderler belgelenerek üyelerle paylaşılır.</p>
-      </div>
-    </div>
-    <div class="kurulis-banner">
-      <img src="WhatsApp Image 2026-06-26 at 21.54.14 (1).jpeg" alt="Aile Fonu Poster" class="poster-img"/>
-    </div>
-  </div>
-</section>
+<!-- Main Card -->
+<div class="card">
+  <div class="logo">🏛️</div>
+  <div class="brand">AİLE FONU</div>
+  <p class="tagline">Birlikte Daha Güçlü Geleceğe</p>
+  <div class="divider"></div>
 
-<!-- MİSYON & VİZYON -->
-<section id="misyon" class="section section-dark">
-  <div class="container">
-    <div class="mv-grid">
-      <div class="mv-card">
-        <div class="mv-icon">🏛️</div>
-        <h2>Misyonumuz</h2>
-        <ul class="mv-list">
-          <li>Aile bireyleri arasında güven, dayanışma ve paylaşım kültürünü güçlendirmek</li>
-          <li>Zor zamanlarda destek olmak, mutlu günlerde bir arada sevinmek</li>
-          <li>Şeffaflık, güven, adalet ve sürdürülebilirlik ilkeleriyle hareket etmek</li>
-          <li>Geçmişten gelen köklü değerleri koruyarak geleceğe emin adımlarla ilerlemek</li>
-        </ul>
-      </div>
-      <div class="mv-divider"></div>
-      <div class="mv-card">
-        <div class="mv-icon">🌟</div>
-        <h2>Vizyonumuz</h2>
-        <ul class="mv-list">
-          <li>Nesiller boyunca yaşatılacak örnek bir aile dayanışma modeli oluşturmak</li>
-          <li>Yarınlara umut ve istikrar taşıyan bir yapı olmak</li>
-          <li>Maddi katkının ötesinde manevi anlam bulan bir sistem kurmak</li>
-          <li>"Köklerden gelen gücümüzle geleceğe yön vermek"</li>
-        </ul>
-        <blockquote class="mv-quote">"Bugün atılan küçük adımlar, yarının büyük başarılarına dönüşür."</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
+  <p class="main-message">
+    Aile Fonu internet sitesi çok yakında sizlerle
+  </p>
 
-<!-- FAALİYETLER -->
-<section id="faaliyetler" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">2023 – 2026</span>
-      <h2>Neler Yaptık?</h2>
-      <p>Aile Fonunun kuruluşundan bu yana gerçekleştirilen tüm faaliyetler şeffaflık ilkesiyle kayıt altına alınmıştır.</p>
-    </div>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-year">2023</div>
-        <div class="tl-content">
-          <h4>🫖 Ekipman Alımı</h4>
-          <p>Küçük semaver ve çay bardağı alındı.</p>
-          <p>Sıdıka BİÇER'in cenazesine nakdi yardım yapıldı.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2024</div>
-        <div class="tl-content">
-          <h4>💰 Yardım & Birikim</h4>
-          <p>28.600 TL toplandı. Harcamalar sonrası 4 gram altın ve 5 çeyrek alındı.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2025</div>
-        <div class="tl-content">
-          <h4>🌙 Bayramlar & Mezar</h4>
-          <p>Ramazan Bayramı için erzak alındı.</p>
-          <p>Kurban Bayramı için erzak alındı.</p>
-          <p>İki aile mensubunun mezarları yapıldı.</p>
-          <p>Büyük semaver, 3 çaydanlık alındı.</p>
-          <p>30.700 TL toplandı. 7.640 TL harcandı.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2026</div>
-        <div class="tl-content">
-          <h4>🏠 Dayanışma & Bayramlar</h4>
-          <p>2 adet aydınlatma lambası, 2 adet uzatma kablosu alındı.</p>
-          <p>Adana sel baskınında etkilenen aile mensubuna nakdi yardım yapıldı.</p>
-          <p>Ramazan Bayramı için erzak alındı.</p>
-          <p>İkamet yangınında etkilenen aile mensubuna nakdi yardım yapıldı.</p>
-          <p>Kurban Bayramı için erzak alındı.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Mali Özet -->
-    <div class="mali-grid">
-      <div class="mali-card">
-        <span class="mali-icon">📥</span>
-        <h4>2023–2024 Toplam</h4>
-        <div class="mali-amount">28.600 ₺</div>
-        <p>Harcama: 2.250 ₺</p>
-      </div>
-      <div class="mali-card">
-        <span class="mali-icon">📈</span>
-        <h4>2025 Toplam</h4>
-        <div class="mali-amount">30.700 ₺</div>
-        <p>Harcama: 7.640 ₺</p>
-      </div>
-      <div class="mali-card highlight">
-        <span class="mali-icon">🪙</span>
-        <h4>Yatırım</h4>
-        <div class="mali-amount">10 Gram + 11 Çeyrek</div>
-        <p>Altın olarak değerlendirildi</p>
-      </div>
-    </div>
+  <div class="gears">
+    <span class="gear-spin">⚙️</span>
+    <span class="gear-spin2">⚙️</span>
   </div>
-</section>
 
-<!-- YÖNETİM KURULU -->
-<section id="yonetim" class="section section-dark">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Yönetim Kurulu</span>
-      <h2>Kimler Yönetiyor?</h2>
-      <p>03.08.2025 tarihli kararla harcama yetkisi Yönetim Kuruluna devredilmiştir.</p>
-    </div>
-    <div class="board-grid">
-      <div class="board-card board-main">
-        <div class="board-avatar">👤</div>
-        <h3>Ensar Can MUKTAR</h3>
-        <span class="board-role">Genel Koordinatör</span>
-        <ul class="board-duties">
-          <li>Genel Takip & Bilgilendirme</li>
-          <li>Öngörülen Kriz ve Acil Durum Değerlendirmesi</li>
-          <li>Muhasebe ve Bilgi Paylaşımı</li>
-          <li>Planlama, Fon Gelişimi</li>
-        </ul>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar">👤</div>
-        <h3>Özkan Baki MUKTAR</h3>
-        <span class="board-role">Kasa & Takip</span>
-        <ul class="board-duties">
-          <li>Kasa Takibi</li>
-          <li>Harcama Yetkisi</li>
-          <li>Yıllık Zam Oranı Belirleme</li>
-          <li>Önerileri Değerlendirme ve Karar Verme</li>
-        </ul>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar">👤</div>
-        <h3>Sıtkı ÇÖMEZ</h3>
-        <span class="board-role">Harcama & Planlama</span>
-        <ul class="board-duties">
-          <li>Harcama Yetkisi</li>
-          <li>Yıllık Zam Oranı Belirleme</li>
-          <li>Önerileri Değerlendirme ve Karar Verme</li>
-          <li>Fiyat Araştırması</li>
-        </ul>
-      </div>
-      <div class="board-card">
-        <div class="board-avatar">👤</div>
-        <h3>Furkan Can MUKTAR</h3>
-        <span class="board-role">Üye İletişim & Takip</span>
-        <ul class="board-duties">
-          <li>Harcama Yetkisi</li>
-          <li>Yıllık Zam Oranı Belirleme</li>
-          <li>Hatırlatma Mesajları</li>
-          <li>Önerileri Değerlendirme ve Karar Verme</li>
-        </ul>
-      </div>
-    </div>
-    <div class="board-img-wrap">
-      <img src="yonetım.jpeg" alt="Yönetim Kurulu Görev Dağılımı" class="board-img"/>
-    </div>
-  </div>
-</section>
+  <p class="description">
+    Sitemiz şu anda yapım aşamasındadır. En kısa sürede tüm içeriklerimizle birlikte hizmetinize sunulacaktır.
+  </p>
 
-<!-- KURALLAR -->
-<section id="kurallar" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Yönerge</span>
-      <h2>Temel Kurallar</h2>
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Yapım Aşaması</span>
+      <span>%85</span>
     </div>
-    <div class="rules-grid">
-      <div class="rule-card">
-        <div class="rule-num">01</div>
-        <h4>Üye Yapısı</h4>
-        <p>Fon; 30 aktif üyeden oluşur. 4'ü Yönetim Kurulu, 26'sı Genel Üye statüsündedir. Yeni üye alımı Yönetim Kurulu onayıyla gerçekleşir.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">02</div>
-        <h4>Aylık Katkı</h4>
-        <p>Her üye belirlenen tutarda düzenli maddi katkı yapar. Her yıl başında Yönetim Kurulunun karara vardığı miktarda artış olur (25 TL veya katları).</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">03</div>
-        <h4>Para Gönderimi</h4>
-        <p>Her ayın 1-15'i arasında IBAN'a gönderilir. 3 ay üst üste göndermeyenler gruptan çıkarılır (iade yapılmaz).</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">04</div>
-        <h4>Cenaze & Acil</h4>
-        <p>Cenaze masrafları tamamen kasadan karşılanır. 10.000 TL+ sağlık harcamasında kasaya göre %30–100 arasında geri ödeme yapılır.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">05</div>
-        <h4>Yatırım</h4>
-        <p>Fonun sürdürülebilirliği için toplanan para altın yatırım aracında değerlendirilir. Tüm işlemler belgelenerek üyelerle paylaşılır.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">06</div>
-        <h4>Şeffaflık</h4>
-        <p>Tüm gelir ve giderler dijital olarak kayıt altına alınır. Aylık ve yıllık raporlar tüm üyelere sunulur.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">07</div>
-        <h4>Eğitim Bursu</h4>
-        <p>Kasanın 200.000-250.000 TL aralığında olması durumunda üniversite öğrencilerine yılda bir kez burs verilir.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">08</div>
-        <h4>Gruptan Ayrılma</h4>
-        <p>Her üye istediği zaman gruptan ayrılabilir. Feragat eden üyeye hiçbir koşulda ücret iadesi yapılmaz.</p>
-      </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
     </div>
   </div>
-</section>
 
-<!-- TEŞEKKÜR -->
-<section id="tesekkur" class="section section-dark tesekkur-section">
-  <div class="container">
-    <div class="tesekkur-wrap">
-      <div class="tesekkur-badge">🎖️ TEŞEKKÜR MESAJI</div>
-      <h2>Değerli Üyelerimize</h2>
-      <p>Aile Fonu'nun Haziran 2023 tarihli kuruluşundan itibaren gösterilen örnek dayanışma, sorumluluk bilinci ve ortak değer anlayışı, bu yapının temelini oluşturmuştur.</p>
-      <p>Fonun gelişim sürecine katkı sağlayan, güven ve iş birliğiyle bu yapının sürdürülebilirliğini destekleyen tüm üyelerimize tekrar teşekkür ederiz.</p>
-      <p>Her bir üyenin düzenli katkısı, yalnızca maddi bir destek değil; aynı zamanda aile bağlarını güçlendiren ve ortak hedeflere yönelen bir topluluk kültürünün göstergesidir.</p>
-      <blockquote class="tesekkur-quote">"Haziran 2023'ten Bugüne – Birlikte Daha Güçlü Geleceğe…"</blockquote>
-      <div class="tesekkur-imza">
-        <p>Nisan 2026</p>
-        <p><strong>AİLE FONU YÖNETİM KURULU</strong></p>
-      </div>
-    </div>
+  <div class="footer-note">
+    <strong>🏛️ Aile Fonu</strong> &nbsp;·&nbsp; Haziran 2023'ten bugüne &nbsp;·&nbsp; Dayanışma ile güçlü yarınlara
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="footer-logo">🏛️ AİLE FONU</span>
-        <p>Birlikte daha da güçlü geleceğe…</p>
-        <p class="footer-copy">© 2025 Aile Fonu – Birinci Baskı. Tüm hakları saklıdır.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Bağlantılar</h4>
-        <ul>
-          <li><a href="#hakkimizda">Hakkımızda</a></li>
-          <li><a href="#misyon">Misyon & Vizyon</a></li>
-          <li><a href="#faaliyetler">Faaliyetler</a></li>
-          <li><a href="#yonetim">Yönetim Kurulu</a></li>
-          <li><a href="#kurallar">Kurallar</a></li>
-        </ul>
-      </div>
-      <div class="footer-values">
-        <h4>Temel Değerlerimiz</h4>
-        <ul>
-          <li>🌱 Nesiller Boyu Devamlılık</li>
-          <li>🤝 Dayanışma ve Güven</li>
-          <li>📈 Ortak Büyüme</li>
-          <li>🔭 Gelecek Vizyonu</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>Kuruluş: Haziran 2023 &nbsp;|&nbsp; Kuruluş Amacı: 6 Şubat 2023 Depremi Sonrası Aile Dayanışması</p>
-      <p class="footer-visitor-line">👁️ Bu sayfayı toplam <strong id="footerVisitorCount">—</strong> kez ziyaret edildi</p>
-      <!-- Gizli sayaç resmi - sayım için gerekli -->
-      <img id="hitsImg" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Falolar0131-rgb.github.io%2Failefonu&count_bg=%23C9A84C&title_bg=%230D1B3E&icon=eye&icon_color=%23ffffff&title=Ziyaretci&edge_flat=true" alt="" style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;"/>
-    </div>
-  </div>
-</footer>
+</div>
 
 <script>
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Mobile nav toggle
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  // Smooth close nav on link click
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.about-card, .mv-card, .tl-item, .mali-card, .board-card, .rule-card').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
-
-  // ===== ZİYARETÇİ SAYACI =====
-  // hits.seeyoufarm.com JSON API ile anlık sayı çekme
-  const HITS_URL = 'https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Falolar0131-rgb.github.io%2Failefonu&count_bg=%23C9A84C&title_bg=%230D1B3E&icon=eye&icon_color=%23ffffff&title=Ziyaretci&edge_flat=true';
-
-  function animateCount(el, target) {
-    const duration = 1800;
-    const start = performance.now();
-    const startVal = 0;
-    function update(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(startVal + (target - startVal) * eased).toLocaleString('tr-TR');
-      if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
+  // Generate floating particles
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 6 + 2;
+    p.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      left: ${Math.random() * 100}%;
+      animation-duration: ${Math.random() * 15 + 10}s;
+      animation-delay: ${Math.random() * 10}s;
+      opacity: ${Math.random() * 0.4 + 0.1};
+    `;
+    container.appendChild(p);
   }
-
-  function setVisitorCount(count) {
-    const heroEl = document.getElementById('visitorCount');
-    const navEl  = document.getElementById('navVisitorCount');
-    const footEl = document.getElementById('footerVisitorCount');
-    if (heroEl) animateCount(heroEl, count);
-    if (navEl)  navEl.textContent = count.toLocaleString('tr-TR');
-    if (footEl) footEl.textContent = count.toLocaleString('tr-TR');
-  }
-
-  // SVG'den sayıyı parse et
-  async function fetchHitsCount() {
-    try {
-      const res = await fetch(HITS_URL);
-      const svg = await res.text();
-      // SVG içindeki sayıyı bul (örn: "1.234" veya "1234")
-      const matches = svg.match(/>([\d\.\,]+)<\/text>/g);
-      if (matches && matches.length >= 2) {
-        // Son sayı genellikle toplam ziyaret
-        const raw = matches[matches.length - 1].replace(/<[^>]+>/g, '').replace(/[^0-9]/g, '');
-        const count = parseInt(raw, 10);
-        if (!isNaN(count) && count > 0) { setVisitorCount(count); return; }
-      }
-    } catch(e) {}
-    // Fallback: localStorage ile basit sayaç
-    const stored = parseInt(localStorage.getItem('af_visits') || '0') + 1;
-    localStorage.setItem('af_visits', stored);
-    setVisitorCount(stored);
-  }
-
-  fetchHitsCount();
 </script>
 </body>
 </html>
