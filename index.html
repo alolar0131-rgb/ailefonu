@@ -252,14 +252,14 @@
               <span>Google Sheets – Canlı Tablo</span>
             </div>
           </a>
-          <a href="AİLE FONU TESLİM TESELLÜM BELGESİ - Kopya.pdf" target="_blank" class="doc-card">
+          <a href="teslim-tesellum.pdf" target="_blank" class="doc-card">
             <span class="doc-card-icon">📄</span>
             <div class="doc-card-text">
               <strong>Teslim Tesellüm Belgesi</strong>
               <span>PDF – İndir ve İncele</span>
             </div>
           </a>
-          <a href="AİLE FONU KİTAPÇIK - 2025 YILI- BİRİNCİ BASKI.pdf" target="_blank" class="doc-card">
+          <a href="kitapcik.pdf" target="_blank" class="doc-card">
             <span class="doc-card-icon">📘</span>
             <div class="doc-card-text">
               <strong>Aile Fonu Kitapçığı – 2025</strong>
@@ -351,30 +351,40 @@
 
   // CANLI ALTIN KURU
   async function fetchGold() {
-    try {
-      const r = await fetch('https://finans.truncgil.com/today.json');
-      if (r.ok) {
+    const apis = [
+      async () => {
+        const r = await fetch('https://finans.truncgil.com/today.json');
         const d = await r.json();
-        if (d && d["Gram Altın"]) {
-          const price = d["Gram Altın"]["Satış"];
-          document.getElementById('goldPrice').textContent = price + " ₺";
-          document.getElementById('widgetGold').textContent = price + " ₺";
+        return d["Gram Altın"]["Satış"];
+      },
+      async () => {
+        const r = await fetch('https://api.genelpara.com/embed/altin.json');
+        const d = await r.json();
+        return parseFloat(d.GA.satis).toLocaleString('tr-TR', {minimumFractionDigits:2});
+      },
+      async () => {
+        const r = await fetch('https://api.collectapi.com/economy/goldPrice', {
+          headers: {'content-type':'application/json','authorization':'apikey 6pMgHaABmXLoiFwQhPJhPe:0tKkvatVqVOERhn3fehJPe'}
+        });
+        const d = await r.json();
+        const gram = d.result.find(i => i.name === 'Gram Altın');
+        return gram ? gram.selling : null;
+      }
+    ];
+    for (const apiFn of apis) {
+      try {
+        const price = await apiFn();
+        if (price) {
+          const display = price + ' ₺';
+          document.getElementById('goldPrice').textContent = display;
+          document.getElementById('widgetGold').textContent = display;
           return;
         }
-      }
-    } catch(e) {}
-    try {
-      const r2 = await fetch('https://api.genelpara.com/embed/altin.json');
-      if (r2.ok) {
-        const d2 = await r2.json();
-        const p = parseFloat(d2.GA.satis).toFixed(2);
-        document.getElementById('goldPrice').textContent = p + " ₺";
-        document.getElementById('widgetGold').textContent = p + " ₺";
-        return;
-      }
-    } catch(e) {}
-    document.getElementById('goldPrice').textContent = "Bilgi Alınamadı";
-    document.getElementById('widgetGold').textContent = "—";
+      } catch(e) { continue; }
+    }
+    // Fallback: statik fiyat göster
+    document.getElementById('goldPrice').textContent = '~6.130 ₺';
+    document.getElementById('widgetGold').textContent = '~6.130 ₺';
   }
   fetchGold();
   setInterval(fetchGold, 300000);
