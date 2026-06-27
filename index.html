@@ -349,45 +349,91 @@
   setInterval(updateClock, 1000);
   updateClock();
 
-  // CANLI ALTIN KURU
-  async function fetchGold() {
-    const apis = [
-      async () => {
-        const r = await fetch('https://finans.truncgil.com/today.json');
-        const d = await r.json();
-        return d["Gram Altın"]["Satış"];
-      },
-      async () => {
-        const r = await fetch('https://api.genelpara.com/embed/altin.json');
-        const d = await r.json();
-        return parseFloat(d.GA.satis).toLocaleString('tr-TR', {minimumFractionDigits:2});
-      },
-      async () => {
-        const r = await fetch('https://api.collectapi.com/economy/goldPrice', {
-          headers: {'content-type':'application/json','authorization':'apikey 6pMgHaABmXLoiFwQhPJhPe:0tKkvatVqVOERhn3fehJPe'}
-        });
-        const d = await r.json();
-        const gram = d.result.find(i => i.name === 'Gram Altın');
-        return gram ? gram.selling : null;
-      }
-    ];
-    for (const apiFn of apis) {
-      try {
-        const price = await apiFn();
-        if (price) {
-          const display = price + ' ₺';
-          document.getElementById('goldPrice').textContent = display;
-          document.getElementById('widgetGold').textContent = display;
-          return;
-        }
-      } catch(e) { continue; }
+  // ===== CANLI ALTIN KURU - GRAMVEY WEBSOCKET =====
+  // Gramvey: Ücretsiz, CORS sorunu yok, her 2 saniyede bir canlı güncelleme
+  function setGoldPrice(price) {
+    const formatted = parseFloat(price).toLocaleString('tr-TR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₺';
+    document.getElementById('goldPrice').textContent = formatted;
+    document.getElementById('widgetGold').textContent = formatted;
+  }
+
+  function connectGoldSocket() {
+    try {
+      const socket = new WebSocket('wss://goldpricesocket.gramvey.com');
+      
+      socket.onmessage = function(message) {
+        try {
+          const data = JSON.parse(message.data);
+          // Gram Altın verisini bul (genelde ilk eleman veya "gram-altin" anahtarı)
+          if (Array.isArray(data)) {
+            const gram = data.find(item => 
+              (item.name && item.name.toLowerCase().includes('gram')) ||
+              (item.code && item.code.toLowerCase().includes('gram'))
+            );
+            if (gram && (gram.selling || gram.spiPrice || gram.price)) {
+              setGoldPrice(gram.selling || gram.spiPrice || gram.price);
+              return;
+            }
+            // İlk elemandaki satış fiyatını al
+            if (data[0] && (data[0].selling || data[0].spiPrice)) {
+              setGoldPrice(data[0].selling || data[0].spiPrice);
+              return;
+            }
+          } else if (typeof data === 'object') {
+            // Obje formatında ise gram-altin anahtarını ara
+            const keys = Object.keys(data);
+            const gramKey = keys.find(k => k.toLowerCase().includes('gram'));
+            if (gramKey && data[gramKey]) {
+              const val = data[gramKey].selling || data[gramKey].spiPrice || data[gramKey].price || data[gramKey];
+              if (typeof val === 'number' || !isNaN(parseFloat(val))) {
+                setGoldPrice(val);
+                return;
+              }
+            }
+          }
+        } catch(e) { console.log('Gramvey parse hatası:', e); }
+      };
+
+      socket.onerror = function() {
+        console.log('WebSocket hatası, REST API deneniyor...');
+        fetchGoldREST();
+      };
+
+      socket.onclose = function() {
+        // 10 saniye sonra tekrar bağlan
+        setTimeout(connectGoldSocket, 10000);
+      };
+    } catch(e) {
+      fetchGoldREST();
     }
-    // Fallback: statik fiyat göster
+  }
+
+  // REST API Fallback
+  async function fetchGoldREST() {
+    try {
+      const r = await fetch('https://goldapi.gramvey.com/golds');
+      if (r.ok) {
+        const data = await r.json();
+        if (Array.isArray(data)) {
+          const gram = data.find(item => item.name && item.name.toLowerCase().includes('gram'));
+          if (gram) { setGoldPrice(gram.selling || gram.price); return; }
+        }
+      }
+    } catch(e) {}
+    try {
+      const r = await fetch('https://finans.truncgil.com/today.json');
+      if (r.ok) {
+        const d = await r.json();
+        if (d && d["Gram Altın"]) { setGoldPrice(d["Gram Altın"]["Satış"].replace('.','').replace(',','.')); return; }
+      }
+    } catch(e) {}
+    // Son fallback
     document.getElementById('goldPrice').textContent = '~6.130 ₺';
     document.getElementById('widgetGold').textContent = '~6.130 ₺';
   }
-  fetchGold();
-  setInterval(fetchGold, 300000);
+
+  // Başlat
+  connectGoldSocket();
 </script>
 
 </body>
