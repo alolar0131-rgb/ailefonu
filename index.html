@@ -3,32 +3,33 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aile Fonu</title>
+  <title>Aile Fonu – Birlikte Güçlü, Geleceğe Güvenle</title>
+  <meta name="description" content="Aile Fonu; dayanışma, güven ve şeffaflık ilkeleri üzerine kurulmuş bir aile yardımlaşma yapısıdır."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ==================== HEADER ==================== -->
 <header class="site-header">
-  <div class="header-inner container">
-    <div class="logo-area">
-      <div class="logo-icon">
-        <span>🌳</span>
+  <div class="container header-inner">
+    <a href="#" class="logo-wrap">
+      <div class="logo-circle">
+        <div style="text-align:center;line-height:1.1;">
+          <div style="font-size:0.9rem;">🌳</div>
+          <div style="font-size:0.45rem;letter-spacing:1px;margin-top:2px;">AİLE<br>FONU</div>
+        </div>
       </div>
-      <div class="logo-text">
-        <h1>AİLE FONU</h1>
-        <span class="logo-year">2023</span>
-      </div>
-    </div>
+      <span class="logo-title">AİLE FONU</span>
+    </a>
     
-    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menü">☰</button>
     
     <nav class="main-nav" id="mainNav">
       <ul>
-        <li><a href="#hero" class="active">ANA SAYFA</a></li>
+        <li><a href="#" class="active">ANA SAYFA</a></li>
         <li><a href="#amac">HAKKIMIZDA</a></li>
         <li><a href="#yonetim">YÖNETİM KURULU</a></li>
         <li><a href="#kurallar">KURALLAR</a></li>
@@ -38,291 +39,345 @@
   </div>
 </header>
 
-<!-- HERO SECTION -->
-<section id="hero" class="hero-section">
-  <div class="hero-overlay"></div>
-  <div class="container hero-container">
-    <div class="hero-content">
-      <h2 class="hero-title">Birlikte Güçlü,<br>Geleceğe Güvenle.</h2>
-      <p class="hero-desc">
-        Aile Fonu olarak bayramda, cenazede, sağlıkta ve acil durumlarda birbirimizin yanında olmayı görev biliyoruz.
-      </p>
-      <div class="hero-buttons">
-        <a href="#amac" class="btn btn-gold">FONUMUZUN AMACI</a>
-        <a href="#misyon" class="btn btn-outline">HAKKIMIZDA</a>
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <h2>Birlikte Güçlü,<br><em>Geleceğe Güvenle.</em></h2>
+      <p>Aile Fonu olarak bayramda, cenazede, sağlıkta ve acil durumlarda birbirimizin yanında olmayı görev biliyoruz.</p>
+      <div class="hero-btns">
+        <a href="#amac" class="btn btn-gold">📋 FONUMUZUN AMACI</a>
+        <a href="#misyon" class="btn btn-outline-white">🔍 HAKKIMIZDA</a>
       </div>
     </div>
   </div>
+  <div class="hero-dots">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  </div>
 </section>
 
-<!-- OVERLAPPING INFO BAR -->
-<div class="info-bar-wrapper container">
-  <div class="info-bar">
-    <div class="info-item">
-      <div class="info-icon">🕒</div>
-      <div class="info-text">
-        <strong>Canlı Saat</strong>
+<!-- ==================== QUICK NAV BAR ==================== -->
+<div class="container quick-nav-wrap">
+  <div class="quick-nav">
+    <a href="#amac" class="qn-item">
+      <div class="qn-icon">🕒</div>
+      <div class="qn-text">
+        <strong>CANLI SAAT</strong>
         <span id="liveTime">--:--:--</span>
       </div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon">📅</div>
-      <div class="info-text">
-        <strong>Bugünün Tarihi</strong>
-        <span id="liveDate">--.--.----</span>
+    </a>
+    <a href="#kurallar" class="qn-item">
+      <div class="qn-icon">📅</div>
+      <div class="qn-text">
+        <strong id="liveDate">TARİH</strong>
+        <span id="liveDateSub">--.--.----</span>
       </div>
-    </div>
-    <div class="info-item">
-      <div class="info-icon">🪙</div>
-      <div class="info-text">
-        <strong>Gram Altın</strong>
+    </a>
+    <a href="#belgeler" class="qn-item">
+      <div class="qn-icon">📁</div>
+      <div class="qn-text">
+        <strong>BELGELER</strong>
+        <span>İndir &amp; İncele</span>
+      </div>
+    </a>
+    <div class="qn-item">
+      <div class="qn-icon">🪙</div>
+      <div class="qn-text">
+        <strong>GRAM ALTIN</strong>
         <span id="goldPrice">Yükleniyor...</span>
       </div>
     </div>
-    <div class="info-item">
-      <div class="info-icon">📁</div>
-      <div class="info-text">
-        <a href="#belgeler" style="color:inherit; text-decoration:none;">
-          <strong>Belgeler</strong>
-          <span>İndir & İncele</span>
-        </a>
-      </div>
-    </div>
   </div>
 </div>
 
-<!-- MAIN 3-COLUMN CONTENT -->
-<section class="main-content section container">
-  <div class="grid-3-col">
+<!-- ==================== 3-COLUMN CARDS ==================== -->
+<section class="main-section container">
+  <div class="grid-3">
     
-    <!-- LEFT: Fonumuzun Amacı (Dark Blue Card) -->
-    <div class="card card-dark" id="amac">
-      <div class="card-header-flex">
+    <!-- LEFT: Fonumuzun Amacı -->
+    <div class="card card-navy" id="amac">
+      <div class="card-navy-header">
         <h3>Fonumuzun Amacı</h3>
-        <span class="card-icon">🎯</span>
+        <div class="header-icon">🎯</div>
       </div>
-      <p class="card-text">
-        Aile fonu ailesi bireyleri arasında birlik, beraberlik ve dayanışmayı güçlendirmek; bayram, cenaze, sağlık ve acil durumlarda maddi ve manevi destek sağlayarak birbirimizin yanında olmaktır.
-      </p>
-      <p class="card-text mt-3">
-        Bu fon, yalnızca maddi destek sağlayan bir yapı değil; aynı zamanda birlikte büyüme ve ortak hedeflerde buluşma düşüncesinin somut bir ifadesidir.
-      </p>
-      <a href="#misyon" class="btn btn-gold btn-sm mt-auto">DEVAMINI OKU →</a>
+      <p>Aile fonu ailesi bireyleri arasında birlik, beraberlik ve dayanışmayı güçlendirmek; bayram, cenaze, sağlık ve acil durumlarda maddi ve manevi destek sağlayarak birbirimizin yanında olmaktır.</p>
+      <br>
+      <p>Bu fon, özellikle cenaze, sağlık, kaza, afet ve benzeri acil durumlarda üyelerin ekonomik yükünü hafifletmek için kullanılacaktır.</p>
+      <div class="card-btn">
+        <a href="#misyon" class="btn btn-gold btn-sm">DEVAMINI OKU →</a>
+      </div>
     </div>
 
-    <!-- MIDDLE: Duyurular / Kurallar (White Card) -->
+    <!-- MIDDLE: Son Kurallar -->
     <div class="card card-white" id="kurallar">
-      <div class="card-header-flex border-bottom">
+      <div class="card-white-header">
         <h3>Sistem ve Kurallar</h3>
-        <a href="#" class="link-small">TÜM KURALLAR →</a>
+        <a href="#yonetim">TÜM KURALLAR →</a>
       </div>
-      <div class="list-group">
+      <div class="announce-list">
         
-        <div class="list-item">
-          <div class="list-icon bg-blue">💰</div>
-          <div class="list-content">
-            <h4>Yatırım ve Şeffaflık</h4>
-            <p>Toplanan para altın olarak değerlendirilir. Tüm gelir ve giderler belgelenir, üyelerle paylaşılır.</p>
+        <div class="announce-item">
+          <div class="announce-icon blue">💰</div>
+          <div class="announce-body">
+            <h4>Yatırım ve Gelir Getirici Faaliyetler</h4>
+            <p>Toplanan para altın olarak değerlendirilir. Her yatırım işlemi belgelenir ve üyelerle paylaşılır.</p>
           </div>
-          <div class="list-date">Sürekli</div>
+          <div class="announce-date">Sürekli</div>
         </div>
 
-        <div class="list-item">
-          <div class="list-icon bg-gold">⚖️</div>
-          <div class="list-content">
-            <h4>Denetim ve Kontrol</h4>
-            <p>Fon, her ay düzenli iç denetimden geçirilir. Tespit edilen aksaklıklar raporlanır.</p>
+        <div class="announce-item">
+          <div class="announce-icon gold">📊</div>
+          <div class="announce-body">
+            <h4>Kayıt ve Şeffaflık</h4>
+            <p>Tüm gelir ve giderler dijital olarak kayıt altına alınır. Aylık ve yıllık raporlar sunulur.</p>
           </div>
-          <div class="list-date">Aylık</div>
+          <div class="announce-date">Aylık</div>
         </div>
 
-        <div class="list-item">
-          <div class="list-icon bg-blue">💳</div>
-          <div class="list-content">
+        <div class="announce-item">
+          <div class="announce-icon blue">💳</div>
+          <div class="announce-body">
             <h4>Para Gönderimi</h4>
-            <p>Gönderim süresi her ayın 1-15'i arasıdır. 3 ay göndermeyen üye gruptan çıkarılır.</p>
+            <p>Her ayın 1-15'i arasında IBAN'a gönderilir. 3 ay göndermeyenler gruptan çıkarılır.</p>
           </div>
-          <div class="list-date">1-15 Arası</div>
+          <div class="announce-date">1-15 Arası</div>
+        </div>
+
+        <div class="announce-item">
+          <div class="announce-icon gold">⚖️</div>
+          <div class="announce-body">
+            <h4>Denetim ve Kontrol</h4>
+            <p>Fon, her ay iç denetimden geçer. Tespit edilen aksaklıklar Yönetim Kurulu tarafından raporlanır.</p>
+          </div>
+          <div class="announce-date">Aylık</div>
         </div>
 
       </div>
     </div>
 
-    <!-- RIGHT: Yaklaşan Etkinlik / Vizyon (Dark Blue Card) -->
-    <div class="card card-dark" id="misyon">
-      <div class="card-header-flex border-bottom-dark">
-        <h3>Misyon & Vizyon</h3>
-        <span class="card-icon">👁️</span>
+    <!-- RIGHT: Misyon & Vizyon -->
+    <div class="card card-navy card-navy-right" id="misyon">
+      <div class="card-white-header">
+        <h3>Misyon &amp; Vizyon</h3>
+        <span>📖</span>
       </div>
-      
-      <div class="event-details">
-        <div class="event-date">
-          <span class="ed-day">01</span>
-          <span class="ed-month">TEMMUZ</span>
-          <span class="ed-year">2026</span>
+
+      <div class="event-block">
+        <div class="event-cal">
+          <div class="day" id="calDay">--</div>
+          <div class="month" id="calMonth">---</div>
+          <div class="year" id="calYear">----</div>
         </div>
-        <div class="event-info">
+        <div class="event-detail">
           <h4>VİZYONUMUZ</h4>
-          <p class="event-meta">📍 Köklerden geleceğe</p>
-          <p class="event-meta">🛡️ Nesiller boyu yaşatılacak model</p>
+          <p><span>📍</span>Köklerden geleceğe yön vermek</p>
+          <p><span>🛡️</span>Nesiller boyu yaşatılacak model</p>
         </div>
       </div>
-      
-      <p class="card-text mt-3" style="font-size: 0.9rem;">
-        "Güçlü bir birliktelik ruhu ve sağlam bir güven temeli üzerinde yükselen, nesiller boyunca yaşatılacak örnek bir aile dayanışma modeli oluşturmaktır."
-      </p>
-      
-      <a href="#yonetim" class="btn btn-gold btn-sm mt-auto" style="width: 100%; text-align:center;">YÖNETİM KURULU →</a>
-    </div>
 
+      <p class="quote-text">"Güçlü bir birliktelik ruhu ve sağlam bir güven temeli üzerinde yükselen, nesiller boyunca yaşatılacak örnek bir aile dayanışma modeli oluşturmaktır."</p>
+      
+      <div class="card-btn" style="margin-top:auto; padding-top:20px;">
+        <a href="#yonetim" class="btn btn-gold btn-sm" style="width:100%;text-align:center;justify-content:center;">YÖNETİM KURULU →</a>
+      </div>
+    </div>
+    
   </div>
 </section>
 
-<!-- VALUES STRIP -->
+<!-- ==================== VALUES STRIP ==================== -->
 <div class="values-strip">
-  <div class="container values-grid">
-    <div class="value-item">
-      <span class="value-icon">🤝</span>
-      <div class="value-text">
-        <h5>GÜÇLÜ DAYANIŞMA</h5>
-        <p>Birbirimize destek oluyoruz</p>
+  <div class="container">
+    <div class="values-grid">
+      <div class="val-item">
+        <div class="val-icon">🤝</div>
+        <div class="val-text">
+          <h5>GÜÇLÜ DAYANIŞMA</h5>
+          <p>Birbirimize destek oluyoruz</p>
+        </div>
       </div>
-    </div>
-    <div class="value-item">
-      <span class="value-icon">⚖️</span>
-      <div class="value-text">
-        <h5>ŞEFFAF YÖNETİM</h5>
-        <p>Açık ve güvenilir yönetim</p>
+      <div class="val-item">
+        <div class="val-icon">⚖️</div>
+        <div class="val-text">
+          <h5>ŞEFFAF YÖNETİM</h5>
+          <p>Açık ve güvenilir yönetim</p>
+        </div>
       </div>
-    </div>
-    <div class="value-item">
-      <span class="value-icon">🛡️</span>
-      <div class="value-text">
-        <h5>GÜVENLİ GELECEK</h5>
-        <p>Gelecek nesillere miras</p>
+      <div class="val-item">
+        <div class="val-icon">🛡️</div>
+        <div class="val-text">
+          <h5>GÜVENLİ GELECEK</h5>
+          <p>Gelecek nesillere miras</p>
+        </div>
       </div>
-    </div>
-    <div class="value-item">
-      <span class="value-icon">👥</span>
-      <div class="value-text">
-        <h5>BİRLİK VE BERABERLİK</h5>
-        <p>En büyük gücümüz ailemiz</p>
+      <div class="val-item">
+        <div class="val-icon">👥</div>
+        <div class="val-text">
+          <h5>BİRLİK VE BERABERLİK</h5>
+          <p>En büyük gücümüz ailemiz</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- YÖNETİM & BELGELER SECTION -->
-<section id="yonetim" class="section bg-light" style="padding-top: 60px;">
+<!-- ==================== BOTTOM: YÖNETİM + BELGELER ==================== -->
+<section class="bottom-section" id="yonetim">
   <div class="container">
-    <div class="grid-2-col">
-      <!-- Yönetim Kurulu -->
+    <div class="grid-2">
+      
+      <!-- Sol: Yönetim Kurulu -->
       <div class="content-block">
-        <h3 class="section-title">Yönetim Kurulu</h3>
+        <h3>Yönetim Kurulu</h3>
         <p>Yönetim Kurulu, fonun idari, mali ve stratejik karar organıdır. Kurul, üyeler arasından seçilen 4 kişiden oluşur.</p>
-        <ul class="styled-list">
+        <ul>
           <li>Tüm kararlar Yönetim Kurulu tarafından alınır.</li>
           <li>Fon bakiyesi, gelir ve gider durumları her ay düzenli olarak üyelerle paylaşılır.</li>
           <li>Yönetim Kurulu üyeleri şeffaflık ve hesap verilebilirlik ilkelerine bağlıdır.</li>
+          <li>Fon kuralları her ay gözden geçirilir ve gerek görülürse güncellenir.</li>
         </ul>
-        <img src="yonetım.jpeg" alt="Yönetim Kurulu" style="width:100%; max-width:500px; border-radius:12px; margin-top:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <img src="yonetım.jpeg" alt="Yönetim Kurulu Görev Dağılımı"/>
       </div>
       
-      <!-- Belgeler & Teşekkür -->
-      <div id="belgeler" class="content-block">
-        <h3 class="section-title">Belgeler ve Tablolar</h3>
-        <div class="doc-links">
+      <!-- Sağ: Belgeler & Teşekkür -->
+      <div class="content-block" id="belgeler">
+        <h3>Belgeler ve Tablolar</h3>
+        <div class="doc-stack">
           <a href="https://docs.google.com/spreadsheets/d/1FbXfVI0zXt9DeA3XBlz2Jah3Ydo73ajED_HU7g2vmRY/edit?gid=233150385#gid=233150385" target="_blank" class="doc-card">
-            <span class="doc-icon">📊</span>
-            <div>
+            <span class="doc-card-icon">📊</span>
+            <div class="doc-card-text">
               <strong>Aile Fonu Mali Tablosu</strong>
-              <span>Google Sheets (Canlı)</span>
+              <span>Google Sheets – Canlı Tablo</span>
             </div>
           </a>
           <a href="AİLE FONU TESLİM TESELLÜM BELGESİ - Kopya.pdf" target="_blank" class="doc-card">
-            <span class="doc-icon">📄</span>
-            <div>
+            <span class="doc-card-icon">📄</span>
+            <div class="doc-card-text">
               <strong>Teslim Tesellüm Belgesi</strong>
-              <span>PDF İndir</span>
+              <span>PDF – İndir ve İncele</span>
             </div>
           </a>
           <a href="AİLE FONU KİTAPÇIK - 2025 YILI- BİRİNCİ BASKI.pdf" target="_blank" class="doc-card">
-            <span class="doc-icon">📘</span>
-            <div>
-              <strong>Aile Fonu Kitapçığı</strong>
-              <span>PDF İndir</span>
+            <span class="doc-card-icon">📘</span>
+            <div class="doc-card-text">
+              <strong>Aile Fonu Kitapçığı – 2025</strong>
+              <span>PDF – Birinci Baskı</span>
             </div>
           </a>
         </div>
-        
-        <h3 class="section-title" style="margin-top:40px;">Teşekkür Mesajı</h3>
+
+        <h3 style="margin-top:40px;">Teşekkür Mesajı</h3>
         <div class="tesekkur-box">
-          <p>Aile Fonu’nun Haziran 2023 tarihli kuruluşundan itibaren gösterilen örnek dayanışma, bu yapının temelini oluşturmuştur. Fonun sürdürülebilirliğini destekleyen tüm üyelerimize tekrar teşekkür ederiz.</p>
-          <p style="text-align:right; font-weight:bold; margin-top:10px; color:#0b2146;">- Aile Fonu Yönetim Kurulu</p>
+          <p>Aile Fonu'nun Haziran 2023 tarihli kuruluşundan itibaren gösterilen örnek dayanışma, sorumluluk bilinci ve ortak değer anlayışı, bu yapının temelini oluşturmuştur.</p>
+          <p>Fonun gelişim sürecine katkı sağlayan, güven ve iş birliğiyle bu yapının sürdürülebilirliğini destekleyen tüm üyelerimize tekrar teşekkür ederiz.</p>
+          <p class="imza">— AİLE FONU YÖNETİM KURULU</p>
         </div>
+
+        <!-- Canlı Saat / Altın Widget -->
+        <div class="widget-bar">
+          <div class="wb-item">
+            <span class="wb-icon">🕒</span>
+            <div>
+              <div class="wb-label">Canlı Saat</div>
+              <div class="wb-value" id="widgetTime">--:--</div>
+            </div>
+          </div>
+          <div class="wb-item">
+            <span class="wb-icon">📅</span>
+            <div>
+              <div class="wb-label">Tarih</div>
+              <div class="wb-value" id="widgetDate">--.--</div>
+            </div>
+          </div>
+          <div class="wb-item">
+            <span class="wb-icon">🪙</span>
+            <div>
+              <div class="wb-label">Gram Altın</div>
+              <div class="wb-value" id="widgetGold">...</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ==================== FOOTER ==================== -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-bottom">
-      <p>&copy; 2026 Aile Fonu. Tüm hakları saklıdır. Birlikte daha güçlü geleceğe...</p>
-    </div>
+    <p>&copy; 2026 Aile Fonu – Birlikte daha güçlü geleceğe. Tüm hakları saklıdır.</p>
   </div>
 </footer>
 
 <script>
-  // Mobile Nav Toggle
-  document.getElementById('mobileToggle').addEventListener('click', function() {
+  // Mobile Nav
+  document.getElementById('mobileToggle').addEventListener('click', () => {
     document.getElementById('mainNav').classList.toggle('active');
   });
 
-  // CANLI SAAT VE TARİH
-  function updateTime() {
+  // CANLI SAAT
+  const monthNames = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+  
+  function updateClock() {
     const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const year = now.getFullYear();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    const s = String(now.getSeconds()).padStart(2,'0');
+    const d = String(now.getDate()).padStart(2,'0');
+    const mo = String(now.getMonth()+1).padStart(2,'0');
+    const y = now.getFullYear();
 
-    document.getElementById('liveTime').textContent = `${hours}:${minutes}:${seconds}`;
-    document.getElementById('liveDate').textContent = `${day}.${month}.${year}`;
+    const timeStr = `${h}:${m}:${s}`;
+    const dateStr = `${d}.${mo}.${y}`;
+
+    // Quick nav bar
+    document.getElementById('liveTime').textContent = timeStr;
+    document.getElementById('liveDateSub').textContent = dateStr;
+    
+    // Calendar in right card
+    document.getElementById('calDay').textContent = d;
+    document.getElementById('calMonth').textContent = monthNames[now.getMonth()].toUpperCase();
+    document.getElementById('calYear').textContent = y;
+
+    // Bottom widget
+    document.getElementById('widgetTime').textContent = `${h}:${m}`;
+    document.getElementById('widgetDate').textContent = `${d} ${monthNames[now.getMonth()]}`;
   }
-  setInterval(updateTime, 1000);
-  updateTime();
+  setInterval(updateClock, 1000);
+  updateClock();
 
   // CANLI ALTIN KURU
-  async function fetchGoldPrice() {
+  async function fetchGold() {
     try {
-      const res = await fetch('https://finans.truncgil.com/today.json');
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data["Gram Altın"]) {
-          document.getElementById('goldPrice').textContent = data["Gram Altın"].Satış + " ₺";
+      const r = await fetch('https://finans.truncgil.com/today.json');
+      if (r.ok) {
+        const d = await r.json();
+        if (d && d["Gram Altın"]) {
+          const price = d["Gram Altın"]["Satış"];
+          document.getElementById('goldPrice').textContent = price + " ₺";
+          document.getElementById('widgetGold').textContent = price + " ₺";
           return;
         }
       }
-      throw new Error("Veri yok");
-    } catch(err) {
-      try {
-        const res2 = await fetch('https://api.genelpara.com/embed/altin.json');
-        if(res2.ok) {
-          const data2 = await res2.json();
-          document.getElementById('goldPrice').textContent = parseFloat(data2.GA.satis).toFixed(2) + " ₺";
-          return;
-        }
-      } catch (e) {
-        document.getElementById('goldPrice').textContent = "Bilgi Alınamadı";
+    } catch(e) {}
+    try {
+      const r2 = await fetch('https://api.genelpara.com/embed/altin.json');
+      if (r2.ok) {
+        const d2 = await r2.json();
+        const p = parseFloat(d2.GA.satis).toFixed(2);
+        document.getElementById('goldPrice').textContent = p + " ₺";
+        document.getElementById('widgetGold').textContent = p + " ₺";
+        return;
       }
-    }
+    } catch(e) {}
+    document.getElementById('goldPrice').textContent = "Bilgi Alınamadı";
+    document.getElementById('widgetGold').textContent = "—";
   }
-  fetchGoldPrice();
-  setInterval(fetchGoldPrice, 300000);
+  fetchGold();
+  setInterval(fetchGold, 300000);
 </script>
 
 </body>
