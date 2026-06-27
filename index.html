@@ -3,412 +3,312 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aile Fonu – Birlikte Daha Güçlü Geleceğe</title>
-  <meta name="description" content="Aile Fonu; dayanışma, güven ve şeffaflık ilkeleri üzerine kurulmuş bir aile yardımlaşma yapısıdır."/>
+  <title>Aile Fonu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo">🏛️ AİLE FONU</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menü">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#amac">Amaç ve Kapsam</a></li>
-      <li><a href="#misyon">Misyon & Vizyon</a></li>
-      <li><a href="#yonetim">Yönetim</a></li>
-      <li><a href="#kurallar">Sistem ve Kurallar</a></li>
-      <li><a href="#belgeler">Belgeler</a></li>
-      <li><a href="#tesekkur">Teşekkür</a></li>
-    </ul>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <span>🌳</span>
+      </div>
+      <div class="logo-text">
+        <h1>AİLE FONU</h1>
+        <span class="logo-year">2023</span>
+      </div>
+    </div>
+    
+    <button class="mobile-toggle" id="mobileToggle">☰</button>
+    
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#hero" class="active">ANA SAYFA</a></li>
+        <li><a href="#amac">HAKKIMIZDA</a></li>
+        <li><a href="#yonetim">YÖNETİM KURULU</a></li>
+        <li><a href="#kurallar">KURALLAR</a></li>
+        <li><a href="#belgeler">BELGELER</a></li>
+      </ul>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-bg"></div>
+<!-- HERO SECTION -->
+<section id="hero" class="hero-section">
   <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-badge">Birlikte Daha Güçlü Geleceğe</span>
-    <h1 class="hero-title">AİLE FONU</h1>
-    <p class="hero-subtitle">Güven, Dayanışma ve Paylaşım</p>
-    <p class="hero-desc">Sadece maddi destek sağlayan bir yapı değil; aynı zamanda birlikte büyüme, birbirine sahip çıkma ve ortak hedeflerde buluşma düşüncesinin somut bir ifadesidir.</p>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h2 class="hero-title">Birlikte Güçlü,<br>Geleceğe Güvenle.</h2>
+      <p class="hero-desc">
+        Aile Fonu olarak bayramda, cenazede, sağlıkta ve acil durumlarda birbirimizin yanında olmayı görev biliyoruz.
+      </p>
+      <div class="hero-buttons">
+        <a href="#amac" class="btn btn-gold">FONUMUZUN AMACI</a>
+        <a href="#misyon" class="btn btn-outline">HAKKIMIZDA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERLAPPING INFO BAR -->
+<div class="info-bar-wrapper container">
+  <div class="info-bar">
+    <div class="info-item">
+      <div class="info-icon">🕒</div>
+      <div class="info-text">
+        <strong>Canlı Saat</strong>
+        <span id="liveTime">--:--:--</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📅</div>
+      <div class="info-text">
+        <strong>Bugünün Tarihi</strong>
+        <span id="liveDate">--.--.----</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">🪙</div>
+      <div class="info-text">
+        <strong>Gram Altın</strong>
+        <span id="goldPrice">Yükleniyor...</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">📁</div>
+      <div class="info-text">
+        <a href="#belgeler" style="color:inherit; text-decoration:none;">
+          <strong>Belgeler</strong>
+          <span>İndir & İncele</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN 3-COLUMN CONTENT -->
+<section class="main-content section container">
+  <div class="grid-3-col">
     
-    <div class="hero-widgets">
-      <!-- Tarih / Saat -->
-      <div class="widget-card">
-        <div class="widget-icon">🕒</div>
-        <div class="widget-info">
-          <span class="widget-label">Güncel Zaman</span>
-          <span class="widget-value" id="liveTime">--:--:--</span>
-          <span class="widget-sub" id="liveDate">--.--.----</span>
+    <!-- LEFT: Fonumuzun Amacı (Dark Blue Card) -->
+    <div class="card card-dark" id="amac">
+      <div class="card-header-flex">
+        <h3>Fonumuzun Amacı</h3>
+        <span class="card-icon">🎯</span>
+      </div>
+      <p class="card-text">
+        Aile fonu ailesi bireyleri arasında birlik, beraberlik ve dayanışmayı güçlendirmek; bayram, cenaze, sağlık ve acil durumlarda maddi ve manevi destek sağlayarak birbirimizin yanında olmaktır.
+      </p>
+      <p class="card-text mt-3">
+        Bu fon, yalnızca maddi destek sağlayan bir yapı değil; aynı zamanda birlikte büyüme ve ortak hedeflerde buluşma düşüncesinin somut bir ifadesidir.
+      </p>
+      <a href="#misyon" class="btn btn-gold btn-sm mt-auto">DEVAMINI OKU →</a>
+    </div>
+
+    <!-- MIDDLE: Duyurular / Kurallar (White Card) -->
+    <div class="card card-white" id="kurallar">
+      <div class="card-header-flex border-bottom">
+        <h3>Sistem ve Kurallar</h3>
+        <a href="#" class="link-small">TÜM KURALLAR →</a>
+      </div>
+      <div class="list-group">
+        
+        <div class="list-item">
+          <div class="list-icon bg-blue">💰</div>
+          <div class="list-content">
+            <h4>Yatırım ve Şeffaflık</h4>
+            <p>Toplanan para altın olarak değerlendirilir. Tüm gelir ve giderler belgelenir, üyelerle paylaşılır.</p>
+          </div>
+          <div class="list-date">Sürekli</div>
         </div>
-      </div>
-      <!-- Altın Kuru -->
-      <div class="widget-card">
-        <div class="widget-icon">🪙</div>
-        <div class="widget-info">
-          <span class="widget-label">Gram Altın</span>
-          <span class="widget-value" id="goldPrice">Yükleniyor...</span>
-          <span class="widget-sub">Canlı Veri</span>
+
+        <div class="list-item">
+          <div class="list-icon bg-gold">⚖️</div>
+          <div class="list-content">
+            <h4>Denetim ve Kontrol</h4>
+            <p>Fon, her ay düzenli iç denetimden geçirilir. Tespit edilen aksaklıklar raporlanır.</p>
+          </div>
+          <div class="list-date">Aylık</div>
         </div>
-      </div>
-      <!-- Takvim -->
-      <div class="widget-card">
-        <div class="widget-icon">📅</div>
-        <div class="widget-info">
-          <span class="widget-label">Takvim</span>
-          <span class="widget-value" id="calendarDay">--</span>
-          <span class="widget-sub" id="calendarMonth">--</span>
+
+        <div class="list-item">
+          <div class="list-icon bg-blue">💳</div>
+          <div class="list-content">
+            <h4>Para Gönderimi</h4>
+            <p>Gönderim süresi her ayın 1-15'i arasıdır. 3 ay göndermeyen üye gruptan çıkarılır.</p>
+          </div>
+          <div class="list-date">1-15 Arası</div>
         </div>
-      </div>
-    </div>
-    
-    <a href="#amac" class="hero-btn">Detayları Keşfet ↓</a>
-  </div>
-  <div class="hero-img-side">
-    <img src="WhatsApp Image 2026-06-26 at 21.54.14.jpeg" alt="Aile Fonu Dayanışma"/>
-  </div>
-</section>
 
-<!-- AMAÇ VE KAPSAM -->
-<section id="amac" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Kuruluş Nedeni</span>
-      <h2>Amaç ve Kapsam</h2>
-      <p>Fonun temel ilkesi; “kimseye yük olmadan, birlikte güçlü kalmak” anlayışıdır.</p>
-    </div>
-    <div class="about-grid">
-      <div class="about-card" data-delay="0">
-        <div class="about-icon">🤝</div>
-        <h3>Dayanışma</h3>
-        <p>Bireyleri arasında dayanışmayı güçlendirmek, zor zamanlarda maddi destek sağlamak ve birlik ruhunu kalıcı kılmak amacıyla kurulmuştur.</p>
-      </div>
-      <div class="about-card" data-delay="100">
-        <div class="about-icon">🛡️</div>
-        <h3>Maddi Destek</h3>
-        <p>Bu fon, özellikle cenaze, sağlık, kaza, afet ve benzeri acil durumlarda üyelerin ekonomik yükünü hafifletmek için kullanılacaktır.</p>
-      </div>
-      <div class="about-card" data-delay="200">
-        <div class="about-icon">🌱</div>
-        <h3>Etkinlik ve Yatırım</h3>
-        <p>Ayrıca, aile içi birlikteliği artıracak etkinlikler ve fonun sürdürülebilirliğini sağlayacak yatırımlar da kapsam dahilindedir.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MİSYON & VİZYON -->
-<section id="misyon" class="section section-alt">
-  <div class="container">
-    <div class="mv-grid">
-      <div class="mv-card">
-        <div class="mv-icon">🏛️</div>
-        <h2>Misyonumuz</h2>
-        <ul class="mv-list">
-          <li>Aile Fonu olarak temel amacımız, aile bireyleri arasında güven, dayanışma ve paylaşım kültürünü güçlendirmektir.</li>
-          <li>Bu fon, yalnızca maddi destek sağlayan bir yapı değil; aynı zamanda birlikte büyüme, birbirine sahip çıkma ve ortak hedeflerde buluşma düşüncesinin somut bir ifadesidir.</li>
-          <li>Her bir aile üyesinin katkısı, bütünün gücünü artırır. Biz, bu gücü doğru şekilde yönlendirerek zor zamanlarda destek olmayı, mutlu günlerde bir arada sevinmeyi, başarıları birlikte kutlamayı esas alırız.</li>
-          <li>Aile bağlarımızı sadece isimle değil, değerlerle güçlendirmek, her bireyin kendini bu büyük yapının anlamlı bir parçası olarak hissetmesini sağlamak misyonumuzun özüdür.</li>
-          <li>Bu doğrultuda, şeffaflık, güven, adalet ve sürdürülebilirlik ilkeleriyle hareket ederiz.</li>
-        </ul>
-      </div>
-      <div class="mv-divider"></div>
-      <div class="mv-card">
-        <div class="mv-icon">🌟</div>
-        <h2>Vizyonumuz</h2>
-        <ul class="mv-list">
-          <li>Güçlü bir birliktelik ruhu ve sağlam bir güven temeli üzerinde yükselen, nesiller boyunca yaşatılacak örnek bir aile dayanışma modeli oluşturmaktır.</li>
-          <li>Bugünün ötesine bakan, yarınlara umut ve istikrar taşıyan bir yapı olmayı hedefler.</li>
-          <li>Her bireyin kendini bu büyük yapının aktif bir üyesi olarak gördüğü, katkının sadece maddi değil manevi olarak da anlam bulduğu bir sistem kurmayı amaçlar.</li>
-          <li>İlerleyen yıllarda fonun yalnızca bir destek mekanizması değil, aynı zamanda aile içi eğitim ve gelişimin de planlandığı bir vizyon merkezi haline gelmesini hedefliyoruz.</li>
-          <li>Bu sayede her nesil, kendinden sonrakine hem birikim hem de bilinç aktaracaktır.</li>
-          <li>Sadece kendi içimizde değil, çevremize de örnek bir birlik ve dayanışma simgesi olacaktır.</li>
-        </ul>
-        <blockquote class="mv-quote">"Köklerden gelen gücümüzle geleceğe yön vermek"</blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- YÖNETİM KURULU -->
-<section id="yonetim" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Yapılanma</span>
-      <h2>Yönetim Kurulu</h2>
-      <p>Yönetim Kurulu, fonun idari, mali ve stratejik karar organıdır.</p>
-    </div>
-    
-    <div class="rules-grid" style="margin-bottom: 40px;">
-      <div class="rule-card">
-        <div class="rule-num">01</div>
-        <h4>Genel Yapı</h4>
-        <p>Kurul, üyeler arasından seçilen 4 kişiden oluşur ve tüm kararlar Yönetim Kurulu tarafından alınır.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">02</div>
-        <h4>Bilgilendirme</h4>
-        <p>Fon bakiyesi, gelir ve gider durumları her ay düzenli olarak üyelerle paylaşılır.</p>
-      </div>
-      <div class="rule-card">
-        <div class="rule-num">03</div>
-        <h4>Şeffaflık</h4>
-        <p>Yönetim Kurulu üyeleri şeffaflık ve hesap verilebilirlik ilkelerine tam olarak bağlıdır.</p>
       </div>
     </div>
 
-    <div class="board-img-wrap">
-      <img src="yonetım.jpeg" alt="Yönetim Kurulu Görev Dağılımı" class="board-img"/>
-    </div>
-  </div>
-</section>
-
-<!-- KURALLAR -->
-<section id="kurallar" class="section section-alt">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Yönerge</span>
-      <h2>Sistem ve Kurallar</h2>
-      <p>Fonun işleyişi, katılım şartları ve süreçleri</p>
-    </div>
-    
-    <div class="rules-grid">
-      <!-- Yatırım ve Gelir -->
-      <div class="rule-card">
-        <div class="rule-num">I</div>
-        <h4>Yatırım ve Gelir Getirici Faaliyetler</h4>
-        <ol>
-          <li>Fonun sürdürülebilirliği için toplanan para, altın olarak yatırım aracında değerlendirilir.</li>
-          <li>Elde edilen gelirler, fonun genel bütçesine aktarılır ve yalnızca amaç doğrultusunda kullanılabilir.</li>
-          <li>Her yatırım işlemi belgelenir ve üyelerle paylaşılır.</li>
-        </ol>
+    <!-- RIGHT: Yaklaşan Etkinlik / Vizyon (Dark Blue Card) -->
+    <div class="card card-dark" id="misyon">
+      <div class="card-header-flex border-bottom-dark">
+        <h3>Misyon & Vizyon</h3>
+        <span class="card-icon">👁️</span>
       </div>
-
-      <!-- Kayıt ve Şeffaflık -->
-      <div class="rule-card">
-        <div class="rule-num">II</div>
-        <h4>Kayıt, Raporlama ve Şeffaflık</h4>
-        <ul>
-          <li>Tüm gelir ve giderler belgeli ve dijital olarak kayıt altına alınır. İşlemlerde açıklama, tarih ve miktar bilgisi bulunur.</li>
-          <li>Aylık ve yıllık raporlar düzenlenerek tüm üyelere sunulur.</li>
-          <li>Üyeler, istedikleri zaman fon hesap özetini inceleme hakkına sahiptir.</li>
-          <li>Tüm işlemlerde şeffaflık, güven ve hesap verilebilirlik esastır.</li>
-        </ul>
-      </div>
-
-      <!-- Denetim -->
-      <div class="rule-card">
-        <div class="rule-num">III</div>
-        <h4>Denetim ve Kontrol</h4>
-        <ul>
-          <li>Fon, her ay olmak üzere iç denetimden geçirilir.</li>
-          <li>Denetim, gelir-gider dengesini, belgelerin doğruluğunu ve kurallara uygunluğu inceler.</li>
-          <li>Tespit edilen aksaklıklar Yönetim Kurulu tarafından raporlanır ve gerekli düzeltmeler yapılır.</li>
-        </ul>
-      </div>
-
-      <!-- Kural ve Sistem Güncellemeleri -->
-      <div class="rule-card">
-        <div class="rule-num">IV</div>
-        <h4>Kural ve Sistem Güncellemeleri</h4>
-        <ul>
-          <li>Fon kuralları her ay gözden geçirilir ve gerek görülürse güncellenir.</li>
-          <li>Değişiklik önerileri Yönetim Kurulu tarafından hazırlanır, üyelerle paylaşılır ve yürürlüğe girer.</li>
-          <li>Her yeni düzenleme, güncel tarihli olarak kayıt altına alınır.</li>
-        </ul>
-      </div>
-
-      <!-- Yıllık Para Artışı -->
-      <div class="rule-card">
-        <div class="rule-num">V</div>
-        <h4>Yıllık Para Artışı</h4>
-        <ul>
-          <li>Her yıl başında Yönetim Kurulunun karara vardığı miktar kadar artış olur.</li>
-          <li>Bu miktar, 25 lira veya katları şeklinde olur.</li>
-        </ul>
-      </div>
-
-      <!-- Para Gönderimi -->
-      <div class="rule-card">
-        <div class="rule-num">VI</div>
-        <h4>Para Gönderimi</h4>
-        <ul>
-          <li>Tüm üyeler paylaşılan IBAN numarasına aylık/toplu gönderim yapabilir.</li>
-          <li>Süre her ayın 1-15'i arasıdır. 3 defa hatırlatma yapılır.</li>
-          <li>Göndermeyenler grupta paylaşılır. 3 ay göndermeyen üye ücret iade edilmeden çıkartılır.</li>
-          <li>Geçmiş borç ödendiğinde geriye dönük not alınır.</li>
-        </ul>
-      </div>
-
-      <!-- Katılım ve Feragat -->
-      <div class="rule-card">
-        <div class="rule-num">VII</div>
-        <h4>Gruba Katılım ve Feragat</h4>
-        <ul>
-          <li>Bu oluşuma tüm üyeler kendi özgür iradesi ile giriş yapar.</li>
-          <li>Her üyenin istediği zaman oluşumdan feragat etme hakkı mevcuttur.</li>
-          <li>Feragat eden üyeye, hangi koşulda olursa olsun ücret iadesi yapılmaz.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BELGELER VE TABLOLAR -->
-<section id="belgeler" class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">Açık Kaynak</span>
-      <h2>Belgeler ve Mali Tablolar</h2>
-      <p>Şeffaflık ilkemiz gereği tüm belgelere ve tablolara buradan ulaşabilirsiniz.</p>
-    </div>
-    
-    <div class="doc-links-wrap">
-      <a href="https://docs.google.com/spreadsheets/d/1FbXfVI0zXt9DeA3XBlz2Jah3Ydo73ajED_HU7g2vmRY/edit?gid=233150385#gid=233150385" target="_blank" class="doc-btn">
-        <span class="doc-btn-icon">📊</span> Aile Fonu Mali Tablosu (Google Sheets)
-      </a>
-      <a href="AİLE FONU TESLİM TESELLÜM BELGESİ - Kopya.pdf" target="_blank" class="doc-btn">
-        <span class="doc-btn-icon">📄</span> Teslim Tesellüm Belgesi (PDF)
-      </a>
-      <a href="AİLE FONU KİTAPÇIK - 2025 YILI- BİRİNCİ BASKI.pdf" target="_blank" class="doc-btn">
-        <span class="doc-btn-icon">📘</span> Aile Fonu Kitapçığı (PDF)
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- TEŞEKKÜR -->
-<section id="tesekkur" class="section tesekkur-section">
-  <div class="container">
-    <div class="tesekkur-wrap">
-      <div class="tesekkur-badge">🎖️ TEŞEKKÜR MESAJI 🎖️</div>
-      <h2>Değerli Üyelerimize,</h2>
-      <p>Aile Fonu’nun Haziran 2023 tarihli kuruluşundan itibaren gösterilen örnek dayanışma, sorumluluk bilinci ve ortak değer anlayışı, bu yapının temelini oluşturmuştur.</p>
-      <p>Fonun gelişim sürecine katkı sağlayan, güven ve iş birliğiyle bu yapının sürdürülebilirliğini destekleyen tüm üyelerimize tekrar teşekkür ederiz.</p>
-      <p>Her bir üyenin düzenli katkısı, yalnızca maddi bir destek değil; aynı zamanda aile bağlarını güçlendiren ve ortak hedeflere yönelen bir topluluk kültürünün göstergesidir.</p>
-      <p>Aile Fonu, bugüne kadar olduğu gibi gelecekte de şeffaflık, güven ve dayanışma ilkeleri doğrultusunda faaliyetlerini sürdürecektir.</p>
-      <p>Bu sürece emeğiyle, fikriyle ve katkısıyla destek veren herkese saygı ve minnetlerimizi sunarız.</p>
       
-      <div class="tesekkur-imza">
-        <p><strong>AİLE FONU YÖNETİM KURULU</strong></p>
+      <div class="event-details">
+        <div class="event-date">
+          <span class="ed-day">01</span>
+          <span class="ed-month">TEMMUZ</span>
+          <span class="ed-year">2026</span>
+        </div>
+        <div class="event-info">
+          <h4>VİZYONUMUZ</h4>
+          <p class="event-meta">📍 Köklerden geleceğe</p>
+          <p class="event-meta">🛡️ Nesiller boyu yaşatılacak model</p>
+        </div>
+      </div>
+      
+      <p class="card-text mt-3" style="font-size: 0.9rem;">
+        "Güçlü bir birliktelik ruhu ve sağlam bir güven temeli üzerinde yükselen, nesiller boyunca yaşatılacak örnek bir aile dayanışma modeli oluşturmaktır."
+      </p>
+      
+      <a href="#yonetim" class="btn btn-gold btn-sm mt-auto" style="width: 100%; text-align:center;">YÖNETİM KURULU →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUES STRIP -->
+<div class="values-strip">
+  <div class="container values-grid">
+    <div class="value-item">
+      <span class="value-icon">🤝</span>
+      <div class="value-text">
+        <h5>GÜÇLÜ DAYANIŞMA</h5>
+        <p>Birbirimize destek oluyoruz</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">⚖️</span>
+      <div class="value-text">
+        <h5>ŞEFFAF YÖNETİM</h5>
+        <p>Açık ve güvenilir yönetim</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">🛡️</span>
+      <div class="value-text">
+        <h5>GÜVENLİ GELECEK</h5>
+        <p>Gelecek nesillere miras</p>
+      </div>
+    </div>
+    <div class="value-item">
+      <span class="value-icon">👥</span>
+      <div class="value-text">
+        <h5>BİRLİK VE BERABERLİK</h5>
+        <p>En büyük gücümüz ailemiz</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YÖNETİM & BELGELER SECTION -->
+<section id="yonetim" class="section bg-light" style="padding-top: 60px;">
+  <div class="container">
+    <div class="grid-2-col">
+      <!-- Yönetim Kurulu -->
+      <div class="content-block">
+        <h3 class="section-title">Yönetim Kurulu</h3>
+        <p>Yönetim Kurulu, fonun idari, mali ve stratejik karar organıdır. Kurul, üyeler arasından seçilen 4 kişiden oluşur.</p>
+        <ul class="styled-list">
+          <li>Tüm kararlar Yönetim Kurulu tarafından alınır.</li>
+          <li>Fon bakiyesi, gelir ve gider durumları her ay düzenli olarak üyelerle paylaşılır.</li>
+          <li>Yönetim Kurulu üyeleri şeffaflık ve hesap verilebilirlik ilkelerine bağlıdır.</li>
+        </ul>
+        <img src="yonetım.jpeg" alt="Yönetim Kurulu" style="width:100%; max-width:500px; border-radius:12px; margin-top:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+      </div>
+      
+      <!-- Belgeler & Teşekkür -->
+      <div id="belgeler" class="content-block">
+        <h3 class="section-title">Belgeler ve Tablolar</h3>
+        <div class="doc-links">
+          <a href="https://docs.google.com/spreadsheets/d/1FbXfVI0zXt9DeA3XBlz2Jah3Ydo73ajED_HU7g2vmRY/edit?gid=233150385#gid=233150385" target="_blank" class="doc-card">
+            <span class="doc-icon">📊</span>
+            <div>
+              <strong>Aile Fonu Mali Tablosu</strong>
+              <span>Google Sheets (Canlı)</span>
+            </div>
+          </a>
+          <a href="AİLE FONU TESLİM TESELLÜM BELGESİ - Kopya.pdf" target="_blank" class="doc-card">
+            <span class="doc-icon">📄</span>
+            <div>
+              <strong>Teslim Tesellüm Belgesi</strong>
+              <span>PDF İndir</span>
+            </div>
+          </a>
+          <a href="AİLE FONU KİTAPÇIK - 2025 YILI- BİRİNCİ BASKI.pdf" target="_blank" class="doc-card">
+            <span class="doc-icon">📘</span>
+            <div>
+              <strong>Aile Fonu Kitapçığı</strong>
+              <span>PDF İndir</span>
+            </div>
+          </a>
+        </div>
+        
+        <h3 class="section-title" style="margin-top:40px;">Teşekkür Mesajı</h3>
+        <div class="tesekkur-box">
+          <p>Aile Fonu’nun Haziran 2023 tarihli kuruluşundan itibaren gösterilen örnek dayanışma, bu yapının temelini oluşturmuştur. Fonun sürdürülebilirliğini destekleyen tüm üyelerimize tekrar teşekkür ederiz.</p>
+          <p style="text-align:right; font-weight:bold; margin-top:10px; color:#0b2146;">- Aile Fonu Yönetim Kurulu</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer id="footer">
+<footer class="site-footer">
   <div class="container">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="footer-logo">🏛️ AİLE FONU</span>
-        <p>Birlikte daha da güçlü geleceğe…</p>
-        <p class="footer-copy">© Aile Fonu. Tüm hakları saklıdır.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Bağlantılar</h4>
-        <ul>
-          <li><a href="#amac">Amaç ve Kapsam</a></li>
-          <li><a href="#misyon">Misyon & Vizyon</a></li>
-          <li><a href="#yonetim">Yönetim Kurulu</a></li>
-          <li><a href="#kurallar">Sistem ve Kurallar</a></li>
-          <li><a href="#belgeler">Belgeler</a></li>
-        </ul>
-      </div>
-      <div class="footer-values">
-        <h4>Temel Değerlerimiz</h4>
-        <ul>
-          <li>🌱 Nesiller Boyu Devamlılık</li>
-          <li>🤝 Dayanışma ve Güven</li>
-          <li>📈 Ortak Büyüme</li>
-          <li>🔭 Gelecek Vizyonu</li>
-        </ul>
-      </div>
-    </div>
     <div class="footer-bottom">
-      <p>Kuruluş: Haziran 2023 &nbsp;|&nbsp; Kuruluş Amacı: Aile Dayanışması</p>
+      <p>&copy; 2026 Aile Fonu. Tüm hakları saklıdır. Birlikte daha güçlü geleceğe...</p>
     </div>
   </div>
 </footer>
 
 <script>
-  // Navbar scroll effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  // Mobile Nav Toggle
+  document.getElementById('mobileToggle').addEventListener('click', function() {
+    document.getElementById('mainNav').classList.toggle('active');
   });
 
-  // Mobile nav toggle
-  document.getElementById('navToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  // Smooth close nav on link click
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.about-card, .mv-card, .tl-item, .mali-card, .board-card, .rule-card').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
-
-  // ===== CANLI SAAT VE TARİH =====
+  // CANLI SAAT VE TARİH
   function updateTime() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-    
     const day = String(now.getDate()).padStart(2, '0');
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const year = now.getFullYear();
 
     document.getElementById('liveTime').textContent = `${hours}:${minutes}:${seconds}`;
     document.getElementById('liveDate').textContent = `${day}.${month}.${year}`;
-    
-    // Calendar widget
-    const monthNames = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
-    document.getElementById('calendarDay').textContent = day;
-    document.getElementById('calendarMonth').textContent = monthNames[now.getMonth()];
   }
-  
   setInterval(updateTime, 1000);
   updateTime();
 
-  // ===== CANLI ALTIN KURU =====
-  // API: Harem Altın veya alternatif ücretsiz bir kaynak deniyoruz.
-  // Çoğu ücretsiz API CORS kısıtlamasına sahip olduğu için genel/açık bir api kullanıyoruz.
+  // CANLI ALTIN KURU
   async function fetchGoldPrice() {
     try {
-      // Harem Altın verilerini proxy ile veya açık servislerden alma örneği.
-      // Bu örnekte canlidoviz.com tarzı açık bir endpoint ya da mock veri kullanılabilir.
-      // Ekranda hata göstermemek adına "hasaltin" gibi ücretsiz veriler kullanılabilir.
       const res = await fetch('https://finans.truncgil.com/today.json');
       if (res.ok) {
         const data = await res.json();
         if (data && data["Gram Altın"]) {
-          const gold = data["Gram Altın"].Satış;
-          document.getElementById('goldPrice').textContent = gold + " ₺";
+          document.getElementById('goldPrice').textContent = data["Gram Altın"].Satış + " ₺";
           return;
         }
       }
-      throw new Error("Veri formatı uyuşmuyor");
+      throw new Error("Veri yok");
     } catch(err) {
-      console.log("Altın API hatası, alternatif deneniyor...");
       try {
         const res2 = await fetch('https://api.genelpara.com/embed/altin.json');
         if(res2.ok) {
@@ -417,16 +317,13 @@
           return;
         }
       } catch (e) {
-        // Fallback for demo if APIs fail due to CORS
         document.getElementById('goldPrice').textContent = "Bilgi Alınamadı";
       }
     }
   }
-
   fetchGoldPrice();
-  // Her 5 dakikada bir kuru güncelle
   setInterval(fetchGoldPrice, 300000);
-
 </script>
+
 </body>
 </html>
